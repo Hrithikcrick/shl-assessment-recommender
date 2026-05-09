@@ -32,6 +32,16 @@ class ChatResponse(BaseModel):
     end_of_conversation: bool
 
 
+@app.get("/")
+def root():
+    return {
+        "message": "SHL Assessment Recommender API is running",
+        "health": "/health",
+        "chat": "/chat",
+        "docs": "/docs"
+    }
+
+
 @app.get("/health")
 def health():
     return {"status": "ok"}
